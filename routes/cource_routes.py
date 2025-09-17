@@ -31,11 +31,11 @@ class CourseListResource(Resource):
 
 class CourseResource(Resource):
     def get(self, course_id):
-        course = Course.query.get_or_404(course_id)
+        course = Course.query.get(course_id)
         return course.to_dict()
 
     def put(self, course_id):
-        course = Course.query.get_or_404(course_id)
+        course = Course.query.get(course_id)
         data = request.get_json()
 
         if 'name' in data:
@@ -54,7 +54,7 @@ class CourseResource(Resource):
         return course.to_dict()
 
     def delete(self, course_id):
-        course = Course.query.get_or_404(course_id)
+        course = Course.query.get(course_id)
         db.session.delete(course)
         db.session.commit()
         return '', 204
