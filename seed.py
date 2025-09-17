@@ -1,4 +1,5 @@
-from app import app
+
+from app import create_app
 from models import db, Course, Student
 
 students = [
@@ -62,6 +63,7 @@ courses = [
 ]
 
 def seed_data():
+	app = create_app()
 	with app.app_context():
 		db.create_all()
 		
