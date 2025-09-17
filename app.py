@@ -14,6 +14,9 @@ def create_app():
 
     with app.app_context():
         db.create_all()
+    @app.route('/')
+    def home():
+        return "Welcome to the Course API!"
     
     return app
 
