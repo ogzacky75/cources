@@ -40,7 +40,7 @@ students = [
 	}
 ]
 
-cources = [
+courses = [
 	{
 		"id": "1",
 		"name": "Mathematics",
@@ -74,7 +74,7 @@ def seed_data():
 			)
 			db.session.add(student)
 		
-		for course_data in cources:
+		for course_data in courses:
 			course = Course(
 				id=course_data["id"],
 				name=course_data["name"],

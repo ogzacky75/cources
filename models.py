@@ -1,9 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy import text
 
 db = SQLAlchemy()
 
-class Course(db.Model):
+class Course(db.Model, SerializerMixin):
 
 	__tablename__ = 'courses'
 
@@ -15,7 +16,7 @@ class Course(db.Model):
 
 	
 
-class Student(db.Model):
+class Student(db.Model, SerializerMixin):
 
 	__tablename__ = 'students'
 
