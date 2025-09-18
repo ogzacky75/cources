@@ -8,12 +8,12 @@ api = Api(course_bp)
 
 class CourseListResource(Resource):
     def get(self):
-        """GET /courses → return all courses"""
+        #GET
         courses = Course.query.all()
         return [course.to_dict() for course in courses], 200
 
     def post(self):
-        """POST /courses → create a new course"""
+        #POST
         data = request.get_json()
 
         if not data or not data.get('name'):
@@ -43,14 +43,14 @@ class CourseListResource(Resource):
 
 class CourseResource(Resource):
     def get(self, course_id):
-        """GET /courses/<id> → return one course"""
+        #GET
         course = Course.query.get(course_id)
         if not course:
             return {'error': 'Course not found'}, 404
         return course.to_dict(), 200
 
     def put(self, course_id):
-        """PUT /courses/<id> → update a course"""
+        #PUT
         course = Course.query.get(course_id)
         if not course:
             return {'error': 'Course not found'}, 404
@@ -79,7 +79,7 @@ class CourseResource(Resource):
         return course.to_dict(), 200
 
     def delete(self, course_id):
-        """DELETE /courses/<id> → delete a course"""
+        #DELETE
         course = Course.query.get(course_id)
         if not course:
             return {'error': 'Course not found'}, 404
